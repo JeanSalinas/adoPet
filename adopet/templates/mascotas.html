@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Mascotas{% endblock %}
+{% block content %}
+<h2 class="mb-4">Mascotas</h2>
+
+<div class="row">
+    {% for mascota in mascotas %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <!-- Imagen con tamaño fijo usando Bootstrap -->
+            <div class="d-flex justify-content-center">
+                <div class="overflow-hidden" style="width: 95%; height: 350px;">
+                    <img src="{{ mascota.foto }}" class="card-img-top h-100 w-100 mt-3" style="object-fit: cover;"
+                        alt="{{ mascota.nombre }}">
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ mascota.nombre }}</h5>
+                <p><strong>Especie:</strong> {{ mascota.especie }}</p>
+                <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+                <p><strong>Tamaño:</strong> {{ mascota.tamaño }}</p>
+                <p><strong>Vacunación:</strong> {{ mascota.vacunacion }}</p>
+                <p><strong>Estado:</strong> {{ mascota.estado }}</p>
+                {% if mascota.estado == "Disponible" %}
+                <p class="text-success"><strong>Contacto:</strong> 300 123 4567</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Editar Mascota{% endblock %}
+
+{% block content %}
+<h2>Editar Mascota</h2>
+
+{% if update_msg %}
+<div class="alert alert-info">{{ update_msg }}</div>
+{% endif %}
+
+
+<form method="post" action="/admin/editar_mascota/{{ mascota._id }}" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" value="{{ mascota.nombre }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Especie</label>
+        <input type="text" name="especie" class="form-control" value="{{ mascota.especie }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Raza</label>
+        <input type="text" name="raza" class="form-control" value="{{ mascota.raza }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Tamaño</label>
+        <input type="text" name="tamaño" class="form-control" value="{{ mascota.tamaño }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Vacunación</label>
+        <input type="text" name="vacunacion" class="form-control" value="{{ mascota.vacunacion }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Edad</label>
+        <input type="text" name="edad" class="form-control" value="{{ mascota.edad }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Estado</label>
+        <select name="estado" class="form-select" required>
+            <option value="Disponible" {% if mascota.estado == "Disponible" %}selected{% endif %}>Disponible</option>
+            <option value="Adoptada" {% if mascota.estado == "Adoptada" %}selected{% endif %}>Adoptada</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Foto</label>
+        <input type="file" name="foto" class="form-control">
+        {% if mascota.foto %}
+            <img src="{{ mascota.foto }}" class="img-thumbnail mt-2" style="width: 150px; height: 150px; object-fit: cover;">
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar Mascota</button>
+</form>
+{% endblock %}

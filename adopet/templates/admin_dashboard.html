@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Panel Admin{% endblock %}
+{% block content %}
+<h2>Panel del Administrador</h2>
+<p>Bienvenido, admin. Desde aquí puedes gestionar el registro y estado de las mascotas.</p>
+<div class="list-group">
+    <a href="/admin/editar_admin" class="list-group-item list-group-item-action">Editar Admin</a>
+    <a href="/admin/mascotas" class="list-group-item list-group-item-action">Gestionar Mascotas</a>
+    <a href="/admin/registro" class="list-group-item list-group-item-action">Registrar Nueva Mascota</a>
+</div>
+{% endblock %}

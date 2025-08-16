@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Gestionar Mascotas{% endblock %}
+{% block content %}
+<h2>Gestionar Mascotas</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mascota in mascotas %}
+        <tr>
+            <td><img src="{{ mascota.foto }}" class="img-thumbnail"
+                    style="width: 200px; height: 200px; object-fit: cover;" alt="{{ mascota.nombre }}">
+            </td>
+            <td>{{ mascota.nombre }}</td>
+            <td>{{ mascota.estado }}</td>
+            <td>
+                <form method="post" action="/admin/cambiar_estado/{{ mascota._id }}">
+                    <select name="estado" class="form-select form-select-sm" required>
+                        <option value="" disabled selected>Estado</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Adoptada">Adoptada</option>
+                    </select>
+                    <button class="btn btn-sm btn-success mt-1">Guardar</button>
+                    <a href="/admin/editar_mascota/{{ mascota._id }}" class="btn btn-sm btn-primary mt-1">Editar</a>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

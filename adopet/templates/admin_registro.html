@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Registrar Mascota{% endblock %}
+{% block content %}
+<h2>Registrar Nueva Mascota</h2>
+<form method="post" action="/admin/registro" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Foto</label>
+        <input type="file" name="foto" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Especie</label>
+        <select name="especie" class="form-select" required>
+            <option value="" disabled selected>Escoge una Opción</option>
+            <option value="perro">Perro</option>
+            <option value="gato">Gato</option>
+            <option value="ave">Ave</option>
+
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Raza</label>
+        <input type="text" name="raza" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Tamaño</label>
+        <select name="tamaño" class="form-select" required>
+            <option value="" disabled selected>Escoge una Opción</option>
+            <option value="pequeño">Pequeño</option>
+            <option value="mediano">Mediano</option>
+            <option value="grande">Grande</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Esquema de vacunas completo</label>
+        <select name="vacunacion" class="form-select" required>
+            <option value="" disabled selected>Escoge una Opción</option>
+            <option value="si">Si</option>
+            <option value="no">No</option>
+            <option value="no_aplica">No aplica</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Edad</label>
+        <input type="text" name="edad" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Estado</label>
+        <select name="estado" class="form-select" required>
+            <option value="" disabled selected>Escoge una opción</option>
+            <option value="Disponible">Disponible</option>
+            <option value="Adoptada">Adoptada</option>
+        </select>
+    </div>
+    <button class="btn btn-success">Registrar Mascota</button>
+</form>
+{% endblock %}
