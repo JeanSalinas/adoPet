@@ -4,3 +4,4 @@ jinja2
 pymongo
 passlib[bcrypt]
 python-multipart
+itsdangerous
